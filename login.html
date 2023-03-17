@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title> Thanks for visting our site! </title>
+    <link rel="stylesheet" type="text/css" href="form1.css">
+
+</head>
+
+
+<body>
+
+<h1> Welcome to our Registration site: </h1>
+
+<form action="store.php" method="post">
+Enter name <input type=text name='fname'> <br>
+Enter email <input type=text name='email'><br>
+<p>
+<input type=submit name='register' value=register>
+<input type=submit name='login' value="login    ">
+<p>
+</form>
+
+<?php
+
+// extract form info
+
+$fname = $_POST['fname'];
+$email = $_POST['email'];
+
+// login functions checks to see if info in file matches what user enters
+
+function login()
+{
+$loginflag = FALSE;
+global $fname, $email;
+
+//  set file name
+
+$filename = "fusers.txt";
+
+// open file to read one line at a time from file. If any errors, then stop
+
+$file1 = fopen($filename, 'r')  or die("errors openning or reading from file");
+
+// loop through extracting one line at time from file and assign string from line to $line
+while (!(feof($file1)))
+{
+// fgets() function reads one line from the file and assigns it to variable called $line
+
+$line = fgets($file1);
+
+// trim() functions removes \n and any leading or ending spaces from $line
+
+$line = trim($line);
+
+//split the line using explode() function on the ':' and assign remaining varaible to a list or an array
+$info = explode(":", $line);
+
+if (($info[0] == $fname) && ($info[1] == $email))
+{
+$loginflag = TRUE;
+break;
+}
+
+}
+
+if ($loginflag)
+{
+    print("<p> Welcome, " . $fname . " to our site");
+}
+
+else
+{
+    print ("Please enter a valid user name and email!");
+}
+// close file when done
+fclose($file1);
+
+}
+
+// call function to store values from form into a file
+
+function store()
+{
+
+global $fname, $email;
+// build the string from form data so you can store in file 
+$line = $fname . ":" . $email . "\n";
+
+
+// set the file name that you want to open
+
+$filename = "fusers.txt";
+
+// open file to append to one line to from user info. If any errors, then stop
+
+$file1 = fopen($filename, 'a')  or die("errors openning or writing to file");
+
+// write the string ($line) to the file using fwrite() function
+
+fwrite($file1, $line) or die("can't write to file");
+
+fclose($file1);
+
+print ("<p style='color:red'>Thank you, $fname for registering into our site <p>");
+
+}
+
+
+// use a function to store info into a file if the submit button with name "register" was clicked
+
+if (isset($_POST['register']))
+
+{
+store();
+
+
+}
+
+// call function "login" if user clicked the "login" submit button, to open file to see if there is a match with user info entered
+
+
+elseif (isset($_POST['login']))
+
+{
+
+login();
+}
+
+            
+?>
+
+</body>
+</HTML>
