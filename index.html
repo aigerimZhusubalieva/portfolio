@@ -27,7 +27,8 @@
     <div class="row">
       <nav class="nav" role="navigation">
         <ul class="nav__items">
-          <li class="nav__item"><a href="#work" class="nav__link">Projects</a></li>
+          <li class="nav__item"><a href="#work1" class="nav__link">Tehcnical Projects</a></li>
+          <li class="nav__item"><a href="#work2" class="nav__link">Creative Projects</a></li>
           <li class="nav__item">
             <a href="#about" class="nav__link">About</a>
           </li>
@@ -52,22 +53,23 @@
   </header>
 
   <main role="main">
-    <section class="work" id="work">
+    <section class="work" >
       <div class="row">
-        <h2>My Projects</h2>
+        <h2 id="work1">Technical Projects</h2>
         <div class="work__boxes">
 
           <div class="work__box">
             <div class="work__text">
               <h3>Naïve Bayes Text Classification</h3>
               <p>
-                
+                This program uses the Naive Bayes method to learn a classifier for text from training data, and using a test set to evaluate the quality of the classifier. The input file consists of short biographies of people tagged with a category, and the program outputs the probabilities associated with each category for each person in the test set, along with the prediction and whether it is right or wrong, and the overall accuracy of the classifier on the test set. The program is divided into two parts, learning the classifier from the training set and evaluating the classifier over the test set.<br>
                 Technology used:
               </p>
               <ul class="work__list">
                 <li>Python</li>
-                <li>AI</li>
-                <li>S</li>
+                <li>Supervised machine learning</li>
+                <li>Naïve Bayes Algorithm</li>
+
               </ul>
               <div class="work__links">
                 <a href="https://github.com/aigerimZhusubalieva/naiveBayesTextClassification/tree/main" title="View Source Code" target="_blank">
@@ -85,9 +87,9 @@
               <img src="./images/ai3.png" class="work__image" alt="Project 2" />
             </div>
             <div class="work__text_r">
-              <h3>Black Jack Reinforcement Learning</h3>
+              <h3>Game of Chance</h3>
               <p>
-                Self-play
+                A program that learns to play a simple game of chance similar to Blackjack. The program learns from a series of games played against itself, keeping track of the number of wins and losses for each combination of player scores and number of dice rolled. The goal is to maximize the number of wins by choosing the optimal number of dice to roll on each turn based on the current score. <br>
                 Technology used:
               </p>
               <ul class="work__list">
@@ -100,8 +102,31 @@
                 </a>
               </div>
             </div>
-            
           </div>
+
+          <div class="work__box">
+            <div class="work__text">
+              <h3>Word Count Wizard</h3>
+              <p>
+                Word Count Wizard counts the number of unique words in the text provided by the user, returns the frequency of any word in that given text among other operations. The wizard takes the input text and organize it in a hash table using 4 different hash functions implementing Summation, Polynomial, Cyclic Shift, and Summation with MAD compression.<br>
+                Technology used:
+              </p>
+              <ul class="work__list">
+                <li>C</li>
+                <li>Hash Tables</li>
+              </ul>
+              <div class="work__links">
+                <a href="https://github.com/aigerimZhusubalieva/wordCountWizard" title="View Source Code" target="_blank">
+                  <img src="./images/github.svg" class="work__code" alt="GitHub">
+                </a>
+              </div>
+            </div>
+            <div class="work__image-box">
+              <img src="./images/wcw.png" class="work__image" alt="Project 1" />
+            </div>
+          </div>
+
+          <h2 id="work2">Creative Projects</h2>
 
           <div class="work__box">
             <div class="work__text">
@@ -263,7 +288,7 @@
             </div>
           </div>
 
-          <div class="work__box">
+          <!-- <div class="work__box">
             <div class="work__image-box">
               <img src="./images/mario.png" class="work__image" alt="Super Mario Screenshot" />
             </div>
@@ -286,9 +311,9 @@
               </div>
             </div>
             
-          </div>
+          </div> -->
 
-          <div class="work__box">
+          <!-- <div class="work__box">
             <div class="work__text">
               <h3>Tetris</h3>
               <p>
@@ -310,7 +335,7 @@
             <div class="work__image-box">
               <img src="./images/tetriss.png" class="work__image" alt="Tetris Screenshot" />
             </div>
-          </div>
+          </div> -->
 
         </div>
       </div>
